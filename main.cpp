@@ -97,11 +97,11 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
 
     // Path to the annotation JSON file
-    std::string annotationFile = "C:/Users/betki/CLionProjects/kursv/annotation.json";
+    std::string annotationFile = "../annotation.json";
     std::map<std::string, std::vector<std::vector<cv::Point2f>>> groundTruth = loadGroundTruth(annotationFile);
 
     // Path to the folder containing the images
-    std::string imageFolder = "C:/Users/betki/CLionProjects/kursv/images";
+    std::string imageFolder = "../images";
     std::vector<std::string> imageFiles;
 
     if (!std::filesystem::exists(imageFolder)) {
@@ -119,7 +119,7 @@ int main() {
     std::cout << "Found images: " << imageFiles.size() << std::endl;
 
     // Path to the output file where results will be saved
-    std::string outputFile = "C:/Users/betki/CLionProjects/kursv/images/result.txt";
+    std::string outputFile = "../images/result.txt";
     std::ofstream outFile(outputFile);
     if (!outFile.is_open()) {
         std::cerr << "Cannot open file for writing: " << outputFile << std::endl;
