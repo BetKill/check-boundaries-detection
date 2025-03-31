@@ -1,3 +1,0 @@
-C:/Users/betki/CLionProjects/kursv/cmake-build-debug/CMakeFiles/kursv.dir
-C:/Users/betki/CLionProjects/kursv/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/betki/CLionProjects/kursv/cmake-build-debug/CMakeFiles/rebuild_cache.dir
