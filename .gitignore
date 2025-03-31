@@ -1,32 +1,17 @@
-# Prerequisites
-*.d
+# Файлы и папки IDE
+.idea/
+.vscode/
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
+# Каталоги сборки
+build/
+cmake-build-debug/
+cmake-build-release/
 
-# Precompiled Headers
-*.gch
-*.pch
+# Файлы CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
 
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+# Файлы вывода программы
+output/
