@@ -20,31 +20,16 @@ cd check-boundaries-detection
 
 ### 3. Соберите проект
 ```sh
-mkdir build
-cd build
-cmake ..
-make
+cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=[путь_к_vcpkg]/scripts/buildsystems/vcpkg.cmake
+cmake --build build
 ```
 
 ##  Использование
-После сборки исполняемый файл будет находиться в папке `build/`. Запустите его с изображением на вход:
+Выгрузить проект
 ```sh
-./check_boundaries_detector path/to/image.jpg
+cmake --install build --prefix "PATH_TO_INCLUDE" --config Debug 
 ```
 Программа обработает изображение, отобразит найденные границы и сохранит результат в `output/`.
-
-##  Структура проекта
-```
-check-boundaries-detection/
-│── images/                 # Примеры изображений чеков
-│── output/                 # Сохранённые результаты работы
-│── annotation.json         # JSON с разметкой данных
-│── main.cpp                # Основной код программы
-│── CMakeLists.txt          # CMake-скрипт сборки
-│── Doxyfile                # Конфигурация для Doxygen
-│── .gitignore              # Игнорируемые файлы
-│── README.md               # Этот файл
-```
 
 ##  Документация
 Документация проекта сгенерирована с помощью Doxygen. Чтобы пересоздать её, выполните:

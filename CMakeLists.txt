@@ -2,21 +2,31 @@ cmake_minimum_required(VERSION 3.27)
 project(kursv)
 
 set(CMAKE_CXX_STANDARD 17)
+set(BUILD_SHARED_LIBS ON)
 
-# Подключаем vcpkg
-if(DEFINED ENV{VCPKG_ROOT})
-    set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
-endif()
 
-# Путь к установленному OpenCV через vcpkg
-set(OpenCV_DIR "C:/Users/betki/.vcpkg-clion/vcpkg/installed/x64-mingw-dynamic/share/opencv4")
-
-# Поиск библиотек
+# Автоматический поиск зависимостей через vcpkg
 find_package(OpenCV REQUIRED)
+find_package(Protobuf REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 
 # Создание исполняемого файла
 add_executable(kursv main.cpp)
 
 # Линковка библиотек
-target_link_libraries(kursv PRIVATE ${OpenCV_LIBS} nlohmann_json::nlohmann_json)
+target_link_libraries(kursv PRIVATE ${OpenCV_LIBS} nlohmann_json::nlohmann_json protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
+
+# --- Добавление install целей ---
+# Установка исполняемого файла в папку bin
+install(TARGETS kursv
+        RUNTIME DESTINATION bin/Debug
+)
+message(${CMAKE_INSTALL_PREFIX}, ${CMAKE_BINARY_DIR})
+install(DIRECTORY "${CMAKE_BINARY_DIR}/Debug"
+        DESTINATION bin
+        FILES_MATCHING PATTERN "*.dll")
+
+
+# Установка дополнительных файлов, если необходимо
+install(FILES annotation.json DESTINATION share)
+install(DIRECTORY images DESTINATION share)
