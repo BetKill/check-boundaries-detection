@@ -11,6 +11,8 @@
 - **CMake** (минимальная версия 3.10)
 - **OpenCV** (минимальная версия 4.5)
 - **Компилятор C++** (GCC, Clang или MSVC)
+- **nlohman_json**
+- **opencv**
 
 ### 2. Склонируйте репозиторий
 ```sh
@@ -27,7 +29,7 @@ cmake --build build
 ##  Создать .exe файл
 Выгрузить проект
 ```sh
-cmake --install build --prefix "PATH_TO_INCLUDE" --config Debug 
+cmake --install build --prefix "PATH_TO_UNLOADING" --config Debug 
 ```
 Программа обработает изображение, отобразит найденные границы и сохранит результат в `share/`.
 ##  Использование 
@@ -44,5 +46,5 @@ doxygen Doxyfile
 После этого откройте `output/index.html` в браузере.
 
 ## Контакты
-Если у вас есть вопросы или предложения, свяжитесь со мной через Issues в репозитории или по email: `betkill@mail.ru`.
+Если у вас есть вопросы или предложения, свяжитесь со мной через mail: `betkill@mail.ru`.
 
